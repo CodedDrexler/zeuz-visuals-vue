@@ -114,6 +114,12 @@ a{
     font-size: 95%;
   }
 
+  
+
+  h1{
+    font-size: 18px;
+  }
+
   .footer-content{
 
   padding: 35px 30px 60px;
@@ -123,7 +129,8 @@ a{
 
 
   p{
-    max-width: 70%
+    max-width: 75%;
+    font-size: 14px;
   }
 
   .right{

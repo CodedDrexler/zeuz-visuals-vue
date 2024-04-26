@@ -89,12 +89,39 @@
 
   }
 
+  .card-marquee-wrapper::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 250px;
+    right: 0;
+    top: 0;
+    background: linear-gradient(to left,
+    rgba(6, 6, 6, 1),
+    rgba(6, 6, 6, 0)
+    );
+  }
+.card-marquee-wrapper::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 200px;
+    transform: translateY(30px);
+    left: 0;
+    top: 0;
+    background: linear-gradient(to right,
+    rgba(6, 6, 6, 1),
+    rgba(6, 6, 6, 0)
+    );
+    z-index: 2;
+  }
+
 
   .card-marquee{
 
     display: flex;
     gap: 30px;
-    animation: 30s slider infinite linear;
+    animation: 25s slider infinite linear;
     padding-top: 30px;
   }
 

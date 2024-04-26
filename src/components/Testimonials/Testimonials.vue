@@ -11,25 +11,13 @@ import imgigor from '/src/assets/igor.png'
   <div class="testimonials-wrapper">
     <h1>See what people have to say</h1>
      <div class="testimonials-cards-wrapper">
+
+      <div class="testimonials-cards-column-1 flex-column">
       <TestimonialsCard
         testimonialText="“Laurentino is a beast! Not only does he have great taste, but his product sense, speed of execution, and witty humor make him a joy to work with.”"
         :imageSrc="imgishan"
         name="Ishan Jadhwani"
         position="Founder @ Intellectual Point"
-        class="testimonial-card"
-      />
-      <TestimonialsCard
-        testimonialText="“Laurentino is probably the best designer I've ever worked with. Even working with us just 10 hours per week, the quality of his output is better than that of many full-time product designers, making his impact on our team truly remarkable.”"
-        :imageSrc="imgwhite"
-        name="Cameron Mema"
-        position="Founder @ Cyfr Inc."
-        class="testimonial-card"
-      />
-      <TestimonialsCard
-        testimonialText="“Laurentino's designs are top tier and he possesses the unique ability to quickly understand product direction, then identify the highest leverage areas for product improvement. Indexing on work with past designers, I'd estimate we saved 10s if not 100s of hours per sprint having Zeuz in the mix.”"
-        :imageSrc="imgwhite"
-        name="Lorem Ipsum"
-        position="Founder @ None"
         class="testimonial-card"
       />
       <TestimonialsCard
@@ -39,11 +27,32 @@ import imgigor from '/src/assets/igor.png'
         position="Founder @ Neuroscale"
         class="testimonial-card"
       />
+      </div>
+      <div class="testimonials-cards-column-2 flex-column">
+        <TestimonialsCard
+        testimonialText="“Laurentino is probably the best designer I've ever worked with. Even working with us just 10 hours per week, the quality of his output is better than that of many full-time product designers, making his impact on our team truly remarkable.”"
+        :imageSrc="imgwhite"
+        name="Cameron Mema"
+        position="Founder @ Cyfr Inc."
+        class="testimonial-card"
+      />
       <TestimonialsCard
         testimonialText="“Laurentino is a phenomenal product designer. Since he's been on board, we've gotten immeasurable amounts of positive comments on our website and game design – the transformation has been remarkable. Because of his vast experience working with early-stage companies, he is able to make product & design recommendations that not only streamline development but also resonate with our target market. He's been a cheat code for us, and we're blessed to have him in our corner.”"
         :imageSrc="imgigor"
         name="Igor Alonge"
         position="CTO @ fiveX Corporation"
+        class="testimonial-card"
+      />
+
+
+      </div>
+      <div class="testimonials-cards-column-3 flex-column">
+
+        <TestimonialsCard
+        testimonialText="“Laurentino's designs are top tier and he possesses the unique ability to quickly understand product direction, then identify the highest leverage areas for product improvement. Indexing on work with past designers, I'd estimate we saved 10s if not 100s of hours per sprint having Zeuz in the mix.”"
+        :imageSrc="imgwhite"
+        name="Lorem Ipsum"
+        position="Founder @ None"
         class="testimonial-card"
       />
       <TestimonialsCard
@@ -53,6 +62,7 @@ import imgigor from '/src/assets/igor.png'
         class="testimonial-card"
         :imageSrc="imgwhite"
       />
+      </div>
     </div>
 
   </div>
@@ -60,6 +70,20 @@ import imgigor from '/src/assets/igor.png'
 </template>
 
 <style scoped>
+
+  .testimonials-cards-column-1{
+    transform: translateY(62px);
+  }
+  .testimonials-cards-column-3{
+    transform: translateY(52.5px);
+  }
+
+  .flex-column{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
   h1{
     font-size: 28px;
     text-align: center;
@@ -74,16 +98,21 @@ import imgigor from '/src/assets/igor.png'
     padding-inline: 20px;
   }
   .testimonials-cards-wrapper{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
     gap: 30px;
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1028px) {
     .testimonials-cards-wrapper{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+      flex-direction: column;
+
+      gap: 30px;
+  }
+  .testimonials-cards-column-1{
+    transform: translateY(0);
+  }
+  .testimonials-cards-column-3{
+    transform: translateY(0);
   }
 }
   @media (max-width: 768px) {

@@ -50,9 +50,12 @@ p:last-child{
 
 .note{
   border-radius: 8px;
-  background: linear-gradient(45deg, 
+
+  background: linear-gradient(45deg,
+  
   rgba(255, 255, 255, 0.4),
   rgba(255, 255, 255, 0)
+
   );
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -67,8 +70,10 @@ p:last-child{
 
 @media (max-width: 768px){
   .note-content{
-
-padding: 20px 30px 24px 20px;
-}
+      padding: 20px 30px 24px 20px;
+    }
+  .wrapper{
+    padding-top: 100px;
+  }
 }
 </style>

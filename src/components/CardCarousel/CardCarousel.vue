@@ -2,44 +2,40 @@
   import { ref, onMounted, onUnmounted } from 'vue';
   import Card from './Card.vue';
 
-  const gap = 10; 
   const translateXValue = ref(0);
   const maxTranslateXValue = ref(0);
-
+  const cardWidth = ref(0);
+  const viewportWidth = ref(0);
 
   const calculateMaxTranslateX = () => {
-    const containerWidth = document.querySelector('.carousel-wrapper').clientWidth;
-    const cardContainer = document.querySelector('.card-container');
-    const cardWidth = cardContainer.children[0].offsetWidth;
-    const cardContainerWidth = (cardWidth + gap) * (cardContainer.children.length);
-    maxTranslateXValue.value = containerWidth - cardContainerWidth;
+    cardWidth.value = document.querySelector('.card').offsetWidth;
+    const cardContainerWidth = document.querySelector('.card-container').clientWidth;
+    viewportWidth.value = window.innerWidth;
+    maxTranslateXValue.value = viewportWidth.value - cardContainerWidth - 83;
   };
 
   const handleRight = () => {
-  if (translateXValue.value > maxTranslateXValue.value) {
-    const cardWidth = document.querySelector('.card').offsetWidth;
-    let remaining = Math.abs(maxTranslateXValue.value - translateXValue.value);
-    console.log(remaining);
-
-    if (remaining > cardWidth) { 
-      translateXValue.value -= cardWidth;
-    } else {
-      translateXValue.value = cardContainerWidth; 
+    if (translateXValue.value > maxTranslateXValue.value) {
+      translateXValue.value -= cardWidth.value;
+      if (translateXValue.value < maxTranslateXValue.value) {
+        translateXValue.value = maxTranslateXValue.value;
+      }
     }
-  }
-};
-const handleLeft = () => {
-  const cardWidth = document.querySelector('.card').offsetWidth; 
-  if (translateXValue.value >= 0) {
-    return; 
-  }
+  };
 
-  translateXValue.value += cardWidth;
-};
+  const handleLeft = () => {
+    if (translateXValue.value < 0) {
+      translateXValue.value += cardWidth.value;
+      if (translateXValue.value > 0) {
+        translateXValue.value = 83;
+      }
+    }
+  };
 
   onMounted(() => {
     calculateMaxTranslateX();
     window.addEventListener('resize', calculateMaxTranslateX);
+    document.querySelector('.card-container').style.transform = 'translateX(83px)';
   });
 
   onUnmounted(() => {
@@ -48,12 +44,15 @@ const handleLeft = () => {
 </script>
 
 
+
+
 <template>
   <section class="card-carousel" id="past-projects">
 
     <h1>Explore past projects</h1>
     <div class="carousel-wrapper">
       <div class="card-container" :style="{ transform: `translateX(${translateXValue}px)` }">
+
         <Card
         h1Text="Intellectual Point"
         pText="Marketing & Website Design"
@@ -61,16 +60,6 @@ const handleLeft = () => {
     rgba(45, 79, 131, 1),
     rgba(16, 37, 89, 1)
     )"
-        />
-        <Card
-        h1Text="Wise Evolution"
-        pText="Brand Design"
-        backgroundColor="linear-gradient(90deg, #2D6E83 0%, #004788 100%)"
-        />
-        <Card
-        h1Text="Neuroscale"
-        pText="Product Design"
-        backgroundColor="linear-gradient(90deg, #5D2D83 0%, #161059 100%)"
         />
         <Card
         h1Text="Intellectual Point"
@@ -81,14 +70,12 @@ const handleLeft = () => {
     )"
         />
         <Card
-        h1Text="Wise Evolution"
-        pText="Brand Design"
-        backgroundColor="linear-gradient(90deg, #2D6E83 0%, #004788 100%)"
-        />
-        <Card
-        h1Text="Neuroscale"
-        pText="Product Design"
-        backgroundColor="linear-gradient(90deg, #5D2D83 0%, #161059 100%)"
+        h1Text="Intellectual Point"
+        pText="Marketing & Website Design"
+        backgroundColor="linear-gradient(90deg,
+    rgba(45, 79, 131, 1),
+    rgba(16, 37, 89, 1)
+    )"
         />
         <Card
         h1Text="Intellectual Point"
@@ -99,15 +86,62 @@ const handleLeft = () => {
     )"
         />
         <Card
-        h1Text="Wise Evolution"
-        pText="Brand Design"
-        backgroundColor="linear-gradient(90deg, #2D6E83 0%, #004788 100%)"
+        h1Text="Intellectual Point"
+        pText="Marketing & Website Design"
+        backgroundColor="linear-gradient(90deg,
+    rgba(45, 79, 131, 1),
+    rgba(16, 37, 89, 1)
+    )"
         />
         <Card
-        h1Text="Neuroscale"
-        pText="Product Design"
-        backgroundColor="linear-gradient(90deg, #5D2D83 0%, #161059 100%)"
+        h1Text="Intellectual Point"
+        pText="Marketing & Website Design"
+        backgroundColor="linear-gradient(90deg,
+    rgba(45, 79, 131, 1),
+    rgba(16, 37, 89, 1)
+    )"
         />
+        <Card
+        h1Text="Intellectual Point"
+        pText="Marketing & Website Design"
+        backgroundColor="linear-gradient(90deg,
+    rgba(45, 79, 131, 1),
+    rgba(16, 37, 89, 1)
+    )"
+        />
+        <Card
+        h1Text="Intellectual Point"
+        pText="Marketing & Website Design"
+        backgroundColor="linear-gradient(90deg,
+    rgba(45, 79, 131, 1),
+    rgba(16, 37, 89, 1)
+    )"
+        />
+        <Card
+        h1Text="Intellectual Point"
+        pText="Marketing & Website Design"
+        backgroundColor="linear-gradient(90deg,
+    rgba(45, 79, 131, 1),
+    rgba(16, 37, 89, 1)
+    )"
+        />
+        <Card
+        h1Text="Intellectual Point"
+        pText="Marketing & Website Design"
+        backgroundColor="linear-gradient(90deg,
+    rgba(45, 79, 131, 1),
+    rgba(16, 37, 89, 1)
+    )"
+        />
+        <Card
+        h1Text="Intellectual Point"
+        pText="Marketing & Website Design"
+        backgroundColor="linear-gradient(90deg,
+    rgba(45, 79, 131, 1),
+    rgba(16, 37, 89, 1)
+    )"
+        />
+
 
       </div>
     </div>
@@ -129,11 +163,6 @@ const handleLeft = () => {
   color: white;
 }
 
-.el-1{
-  position: absolute;
-  transform: translateY(-280px);
-  z-index: 3;
-}
 
 #past-projects{
   scroll-behavior: smooth;
@@ -147,16 +176,14 @@ h1 {
 }
 
 .card-carousel {
-  z-index: 3;
   position: relative;
-  background-color: rgba(6, 6, 6, 1);
+
 }
 
 .carousel-wrapper {
   overflow: hidden;
   
   position: relative; 
-  padding-inline: 90px;
 }
 
 /* .carousel-wrapper::after{

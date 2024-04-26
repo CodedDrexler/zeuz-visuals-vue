@@ -32,7 +32,7 @@ export default {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    z-index: 900;
+
   }
 
 

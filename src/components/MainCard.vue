@@ -28,7 +28,7 @@
 
         </button>
         <div class="sender">
-            <a class="sender-link" href="#past-projects">See work!</a>
+            <a class="sender-link" href="#past-projects">See work</a>
           <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M10 2.5C10.4142 2.5 10.75 2.83579 10.75 3.25V15.8401L12.7004 13.7397C12.9823 13.4361 13.4568 13.4186 13.7603 13.7004C14.0639 13.9823 14.0814 14.4568 13.7996 14.7603L10.5496 18.2603C10.4077 18.4132 10.2086 18.5 10 18.5C9.79145 18.5 9.59231 18.4132 9.4504 18.2603L6.2004 14.7603C5.91855 14.4568 5.93613 13.9823 6.23966 13.7004C6.54319 13.4186 7.01774 13.4361 7.29959 13.7397L9.25 15.8401V3.25C9.25 2.83579 9.58579 2.5 10 2.5Z" fill="white"/>
           </svg>

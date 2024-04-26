@@ -14,7 +14,6 @@
       <MainCard class="mc"/>
       <div class="gradient"></div>
     </div>
-
     <div class="content-page">
       <CardCarousel/>
       <CardSlider/>
@@ -23,7 +22,9 @@
       <div class="footer">
         <Footer/>
       </div>
+     
     </div>
+   
   </div>
 </template>
 
@@ -39,9 +40,10 @@
   display: grid;
   place-content: center;
   min-height: 100vh;
-  background-image: url('./assets/Preview.png');
+  background-image: url('/src/assets/Preview.png');
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .gradient {
@@ -54,8 +56,21 @@
 }
 
 .content-page {
+
+  z-index: 999;
   position: relative;
   background-color: rgba(6, 6, 6, 1);
+  background-image: url('/src/assets/Mask-bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+@media (max-width: 768px) {
+  .content-page{
+    background-image: url('/src/assets/mobile-bg.png');
+  }
 }
 
 .mc {
